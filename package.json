@@ -4,7 +4,7 @@
   "description": "test puppeteer in github action",
   "private": true,
   "scripts": {
-    "update-data": "node update-data"
+    "s": "node index.js"
   },
   "engines": {
     "node": "15.3.0"
