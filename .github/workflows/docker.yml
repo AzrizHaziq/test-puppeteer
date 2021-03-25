@@ -1,0 +1,15 @@
+name: Running with JSDOM
+
+on:
+  push:
+
+jobs:
+  automation:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run docker
+        run: |
+          docker build -t jsdom .
+          docker run -t --init --rm --cap-add=SYS_ADMIN jsdom
