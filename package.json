@@ -4,10 +4,8 @@
   "description": "test puppeteer in github action",
   "private": true,
   "scripts": {
-    "s": "node index.js"
-  },
-  "engines": {
-    "node": "15.3.0"
+    "s": "node index.js",
+    "j": "node jsdom.js"
   },
   "author": "Azriz Haziq <azrizhaziq@gmail.com> (https://azrizhaziq.github.io/portfolio)",
   "license": "ISC",
