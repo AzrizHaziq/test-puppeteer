@@ -14,23 +14,17 @@ import puppeteer from 'puppeteer'
 
   console.log('after goto')
 
-  const title = await page.evaluate(p => {
-    return document.body.innerHTML
-  })
+  await page.waitForSelector('.pagination li [data-val]')
+  const pagination = await page.$$('.pagination li [data-val]')
 
-  console.log('title: ', title.slice(0, 500))
+  let temp = []
+  for await (let page of pagination) {
+    const textContent = await page.evaluate(el => el.textContent)
+    temp.push(textContent)
+  }
 
-  // await page.waitForSelector('.pagination li [data-val]')
-  // const pagination = await page.$$('.pagination li [data-val]')
-
-  // let temp = []
-  // for await (let page of pagination) {
-  //     const textContent = await page.evaluate(el => el.textContent)
-  //     temp.push(textContent)
-  // }
-
-  // const maxPages = Math.max(...temp.filter(Boolean).map(parseFloat))
-  // console.log(maxPages)
+  const maxPages = Math.max(...temp.filter(Boolean).map(parseFloat))
+  console.log(maxPages)
 
   // const def = await page.evaluate(() => {
   //   document.querySelector('#DataTables_Table_0_paginate > ul.pagination').scrollIntoView();
