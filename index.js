@@ -9,10 +9,10 @@ import puppeteer from 'puppeteer'
   console.log('before goto')
 
   await page.goto(
-    'https://www.bursamalaysia.com/market_information/shariah_compliant_equities_prices?top_stock=top_active&per_page=50&page=1',
-    {
-      waitUntil: 'networkidle0',
-    }
+    'https://www.bursamalaysia.com/market_information/shariah_compliant_equities_prices?top_stock=top_active&per_page=50&page=1'
+    // {
+    //   waitUntil: 'networkidle0',
+    // }
   )
 
   console.log('after goto')
