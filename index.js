@@ -20,6 +20,8 @@ import puppeteer from 'puppeteer'
   await page.waitForSelector('.pagination li [data-val]')
   const pagination = await page.$$('.pagination li [data-val]')
 
+  console.log('grab pagination dom')
+
   let temp = []
   for await (let page of pagination) {
     const textContent = await page.evaluate(el => el.textContent)
