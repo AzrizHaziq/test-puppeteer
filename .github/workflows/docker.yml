@@ -1,7 +1,8 @@
 name: Running with JSDOM
 
 on:
-  push:
+#  push:
+  workflow_dispatch:
 
 jobs:
   automation:
