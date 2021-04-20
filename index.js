@@ -15,10 +15,10 @@ import puppeteer from 'puppeteer'
   console.log('after goto')
 
   const title = await page.evaluate(p => {
-    return document.title
+    return document.body.innerHTML
   })
 
-  console.log('title: ', title)
+  console.log('title: ', title.slice(0, 500))
 
   // await page.waitForSelector('.pagination li [data-val]')
   // const pagination = await page.$$('.pagination li [data-val]')
