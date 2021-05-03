@@ -16,6 +16,12 @@ import puppeteer from 'puppeteer'
   )
 
   console.log('after goto')
+  const text = 'Tips: 1) Click any row for more information on the equity'
+  try {
+    await page.waitForFunction(text => document.querySelector('body').innerText.includes(text), {}, text)
+  } catch (e) {
+    console.log(`The text "${text}" was not found on the page`)
+  }
 
   await page.waitForSelector('.pagination li [data-val]')
   const pagination = await page.$$('.pagination li [data-val]')
